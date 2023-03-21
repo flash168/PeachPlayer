@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peach.DataAccess", "Peach.DataAccess\Peach.DataAccess.csproj", "{4E90AE0D-1694-4AD4-9961-F482322B627D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peach.Foundation", "Peach.Foundation\Peach.Foundation.csproj", "{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeaPlayer", "PeachPlayer\PeaPlayer.csproj", "{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Debug|x64.Build.0 = Debug|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Release|x64.ActiveCfg = Release|Any CPU
+		{4E90AE0D-1694-4AD4-9961-F482322B627D}.Release|x64.Build.0 = Release|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Debug|x64.Build.0 = Debug|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Release|x64.ActiveCfg = Release|Any CPU
+		{DCD24C4F-7343-4D6F-9434-2B9CA9EC1671}.Release|x64.Build.0 = Release|Any CPU
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Debug|x64.ActiveCfg = Debug|x64
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Debug|x64.Build.0 = Debug|x64
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Release|x64.ActiveCfg = Release|x64
+		{87ABFECE-4FFC-419C-A3F3-7B459BF9F83D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5B92472-D344-4D16-89B4-6472DC0F29CA}
+	EndGlobalSection
+EndGlobal
