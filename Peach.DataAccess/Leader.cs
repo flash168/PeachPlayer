@@ -33,6 +33,7 @@ namespace Peach.DataAccess
         string tph = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
 
         Parser parser = new Parser();
+        HtmlParser hparser = new HtmlParser();
         public bool InitLeader(string api, string drpy, string ext)
         {
             string apiurl = api.Substring(0, api.LastIndexOf('/') + 1);
@@ -47,12 +48,12 @@ namespace Peach.DataAccess
             }).SetValue("consolelog", new Action<object>(g => { Debug.WriteLine(g); }));
 
             // 将 C# 函数转换为 JavaScript 函数，并将其添加到 engine 中
-            engine.SetValue("pd", new Func<string, string, string, string>(parser.pd));
-            engine.SetValue("pdfh", new Func<string, string, string, string>(parser.pdfh));
-            engine.SetValue("pdfl", new Func<string, string, string, string, string, List<string>>(parser.pdfl));
-            engine.SetValue("pdfa", new Func<string, string, List<string>>(parser.pdfa));
-            engine.SetValue("joinUrl", new Func<string, string, string>(parser.joinUrl));
-            engine.SetValue("req", new Func<string, JsValue, object>(parser.request));
+            engine.SetValue("pd", new Func<string, string, string>(hparser.parseDom));
+            engine.SetValue("pdfh", new Func<string, string, string, string>(hparser.parseDomForUrl));
+            engine.SetValue("pdfl", new Func<string, string, string, string, string, List<string>>(hparser.parseDomForList));
+            engine.SetValue("pdfa", new Func<string, string, List<string>>(hparser.parseDomForArray));
+            engine.SetValue("joinUrl", new Func<string, string, string>(hparser.joinUrl));
+            engine.SetValue("req", new Func<string, JsValue, object>(hparser.request));
 
             engine.SetValue("local", new Local());
 

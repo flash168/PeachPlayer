@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:wb="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         xmlns:local="clr-namespace:PeaPlayer.Windows"
         mc:Ignorable="d"
         Title="播放器" Height="450" Width="800">
@@ -12,6 +13,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <wb:WebView2 x:Name="webView" Width="1" Height="1" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
         <ContentControl x:Name="contentCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
         <Slider Margin="15,0" Grid.Row="1" />
         <StackPanel Grid.Row="2" Orientation="Horizontal">
@@ -20,5 +23,5 @@
             <Button Width="90" Height="25" Content="开始"/>
             <Button Width="90" Height="25" Content="开始"/>
         </StackPanel>
-        </Grid>
+    </Grid>
 </Window>

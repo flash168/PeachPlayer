@@ -1,6 +1,4 @@
 ﻿using Microsoft.Web.WebView2.Core;
-using Peach.DataAccess.Models;
-using PeaPlayer.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,29 +13,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Vlc.DotNet.Core;
 using Vlc.DotNet.Core.Interops.Signatures;
 using Vlc.DotNet.Wpf;
 
-namespace PeaPlayer.Windows
+namespace PeaPlayer.uc
 {
     /// <summary>
-    /// PlayerWin.xaml 的交互逻辑
+    /// SniffingWebUc.xaml 的交互逻辑
     /// </summary>
-    public partial class PlayerWin : Window
+    public partial class SniffingWebUc : UserControl
     {
-        PlayerWinVM vm;
-        public PlayerWin(PlayerData data, string ji)
+        public event Action<string> OnResponseReceived;
+        public SniffingWebUc()
         {
             InitializeComponent();
             InitializeAsync();
             webView.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
-
-            InitVLC();
-            this.DataContext = vm = new PlayerWinVM(data, ji, vlcVideo, GoUrl);
         }
-
 
         private void WebView_CoreWebView2InitializationCompleted(object? sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
         {
@@ -50,8 +45,7 @@ namespace PeaPlayer.Windows
             Debug.WriteLine(url);
             if (url.Contains(".m3u8"))
             {
-                vlcVideo?.SourceProvider?.MediaPlayer?.Play(url);
-               // OnResponseReceived?.Invoke(url);
+                OnResponseReceived?.Invoke(url);
             }
         }
 
@@ -77,34 +71,6 @@ namespace PeaPlayer.Windows
             else
                 purl = url;
         }
-
-
-        VlcControl vlcVideo;
-        public void InitVLC()
-        {
-            if (this.vlcVideo?.SourceProvider?.MediaPlayer != null)
-            {
-                this.vlcVideo.SourceProvider.MediaPlayer.PositionChanged -= MediaPlayer_PositionChanged;
-                this.vlcVideo.SourceProvider.MediaPlayer.LengthChanged -= MediaPlayer_LengthChanged;
-            }
-            this.vlcVideo = new VlcControl();
-            contentCtrl.Content = this.vlcVideo;
-            var libDirectory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\LibVlc");
-            this.vlcVideo.SourceProvider.CreatePlayer(libDirectory);//创建视频播放器
-            this.vlcVideo.SourceProvider.MediaPlayer.PositionChanged += MediaPlayer_PositionChanged;//视频的定位移动事件
-            this.vlcVideo.SourceProvider.MediaPlayer.LengthChanged += MediaPlayer_LengthChanged;//播放视频源的视频长度
-
-        }
-
-        private void MediaPlayer_LengthChanged(object? sender, VlcMediaPlayerLengthChangedEventArgs e)
-        {
-        }
-
-        private void MediaPlayer_PositionChanged(object? sender, VlcMediaPlayerPositionChangedEventArgs e)
-        {
-        }
-
-
 
     }
 }

@@ -155,10 +155,13 @@ namespace Peach.DataAccess
             var rue = rule.Substring(1);
             var cc = rule.Substring(0, 1);
 
-            // 选择包含特定 class 的节点
+            // 选择包含特定 class 的节点"//span[@class='" + ClassToGet + "']"
             HtmlNodeCollection nodes = null;
+
+           var tnodes = htmlDoc.DocumentNode.Descendants().Where(node => node.GetAttributeValue("class", "").Equals(rue, StringComparison.InvariantCultureIgnoreCase));
+            nodes = tnodes as HtmlNodeCollection;
             if (cc == ".")
-                nodes = htmlDoc.DocumentNode.SelectNodes($"//div[contains(@class,'{rue}')]");
+                nodes = htmlDoc.DocumentNode.SelectNodes($"//[contains(@class,'{rue}')]");
             else if (cc == "#")
                 nodes = htmlDoc.DocumentNode.SelectNodes($"//div[contains(@id,'{rue}')]");
             else
